@@ -159,8 +159,7 @@ int main(int argc, char* argv[]){
 
     if(NUM_TRIALS<11){
       //this means debug
-      printf("xt: %.2f, delta: %.2f\n", trials[i],(trials[i]*trials[i]*0.5) - yt);
-
+      printf("Epected:%.2f \t Actul %.2f\n",yt,trials[i]*trials[i]*0.5);
     }
   }
   clock_t end= clock();
