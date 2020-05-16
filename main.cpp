@@ -74,6 +74,7 @@ float lookupTableBST(float * nums,int len, float searchTerm){
       }
       /*====================== interpolate extra conditionals
        */
+        // if the x values are wrappers
       else if(mid!=0 && nums[2*mid] > searchTerm && nums[2*mid-2] < searchTerm ){
         float x1 = nums[2*mid-2],
               x3 = nums[2*mid];
@@ -163,7 +164,7 @@ int main(int argc, char* argv[]){
     }
   }
   clock_t end= clock();
-  printf("\n%i,%.4f", ARRAY_SIZE,(float)(end - start) * 1000.0 / CLOCKS_PER_SEC);
+  printf("\n%i,%i,%.4f",ARRAY_SIZE, NUM_TRIALS,(float)(end - start) * 1000.0 / CLOCKS_PER_SEC);
 
 
   delete hardcoded;
