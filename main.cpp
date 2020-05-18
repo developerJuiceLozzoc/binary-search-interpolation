@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <ctime>
+#include "./LinearInterpolateBST.cpp"
 
 using namespace std;
 
@@ -37,9 +38,12 @@ float lookupTable(float * nums,int len, float searchTerm){
     return nums[len-1];
   }
   else{
-    for(int i=0;i<len/2-1;i++){
-      if(searchTerm<nums[i*2]){
-        double x1=nums[i*2-2], x3 = nums[i*2],y1=nums[i*2-1],y3=nums[i*2+1];
+    for(int i=0;i<len/2-1;i+=2){
+      if(searchTerm<nums[i]){
+        double x1=nums[i],
+              x3 = nums[i+2],
+              y1=nums[i+1],
+              y3=nums[i+3];
         return (searchTerm - x1) * (y3-y1) / (x3-x1) + y1;
       }
     }
@@ -113,7 +117,6 @@ float lookupTableBST(float * nums,int len, float searchTerm){
     printf("We should never reach this code\n");
     return -1;
 
-
   }
 
   //return math
@@ -156,15 +159,20 @@ int main(int argc, char* argv[]){
 
   clock_t start = clock();
   for(int i=0;i<NUM_TRIALS;i++){
-    yt = lookupTableBST(hardcoded,ARRAY_SIZE,trials[i]);
+    yt = lookupTable(hardcoded,ARRAY_SIZE,trials[i]);
+  }
+  clock_t end= clock();
+  clock_t start1 = clock();
+  for(int i=0;i<NUM_TRIALS;i++){
+    yt = InterpolateYGivenXBST(hardcoded,ARRAY_SIZE,trials[i]);
 
     if(NUM_TRIALS<11){
       //this means debug
       printf("Interpolated:%.2f \t Actul %.2f,\tDelta: %.2f\n",yt,trials[i]*trials[i]*0.5,yt-trials[i]*trials[i]*0.5);
     }
   }
-  clock_t end= clock();
-  printf("\n%i,%i,%.4f",ARRAY_SIZE, NUM_TRIALS,(float)(end - start) * 1000.0 / CLOCKS_PER_SEC);
+  clock_t end2= clock();
+  printf("\n%i,%i,%.4f,%.4f",ARRAY_SIZE, NUM_TRIALS,(float)(end - start) * 1000.0 / CLOCKS_PER_SEC,(float)(end2 - start1) * 1000.0 / CLOCKS_PER_SEC);
 
 
   delete hardcoded;
@@ -175,4 +183,22 @@ int main(int argc, char* argv[]){
 /* 12.644 to 69.59
 is 16.412 to 103.510
  if we were truly growing log2 then y2 would be 89 and not 103
+
+original code:
+int binary_search(int q, int* array, int n) {
+  int mid, low = 0, high = n - 1;
+  while (low <= high) {
+    mid = (low + high) / 2;
+    if (array[mid] == q) {
+      return mid;
+    } else if (array[mid] < q)
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return low;
+}
+
+
 */
