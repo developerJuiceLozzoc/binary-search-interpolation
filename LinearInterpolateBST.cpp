@@ -1,9 +1,14 @@
 #include <math.h>
 #include <stdio.h>
 
+
+
 /*
- 1 d array of pairs [x1,y1,x2,y2,...]
-its easier to test this way, in one malloc compared to many.
+interpolate a 1 d array of pairs [x1,y1,x2,y2,...]
+given xTarget find the interpolated y value.
+1d array of pairs b/c its easier to test this way, in one malloc compared to many.
+
+Author: github@lozzoc, may 17,2020;
 */
 float InterpolateYGivenXBST(float * array, int numpairs, float searchTerm) {
 
