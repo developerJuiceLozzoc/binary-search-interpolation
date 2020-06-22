@@ -9,6 +9,8 @@ given xTarget find the interpolated y value.
 1d array of pairs b/c its easier to test this way, in one malloc compared to many.
 
 Author: github@lozzoc, may 17,2020;
+Licensed May 2020 - 
+
 */
 float InterpolateYGivenXBST(float * array, int numpairs, float searchTerm) {
 
