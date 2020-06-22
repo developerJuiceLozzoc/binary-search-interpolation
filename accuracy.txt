@@ -1,0 +1,14 @@
+Interpolated:7858209.50 	 Actul 7858209.00,	Delta: 0.50
+Interpolated:11858163.00 	 Actul 11858162.00,	Delta: 1.00
+/* very funny that the 69 value is slightly shifted. all i ded was
+the same printf statement for each ofthem*/
+Interpolated:681194.75 	 Actul 681194.69,	Delta: 0.06
+Interpolated:3140494.00 	 Actul 3140494.00,	Delta: 0.00
+Interpolated:3427698.25 	 Actul 3427698.25,	Delta: 0.00
+Interpolated:7437950.00 	 Actul 7437949.50,	Delta: 0.50
+Interpolated:11741333.00 	 Actul 11741333.00,	Delta: 0.00
+Interpolated:9595781.00 	 Actul 9595780.00,	Delta: 1.00
+Interpolated:1338940.00 	 Actul 1338940.12,	Delta: -0.12
+Interpolated:3148791.25 	 Actul 3148791.50,	Delta: -0.25
+
+
