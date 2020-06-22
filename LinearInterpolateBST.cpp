@@ -22,17 +22,15 @@ float InterpolateYGivenXBST(float * array, int numpairs, float searchTerm) {
     return array[numpairs*2-1];
   }
   else{
-
-
     while (low <= high) {
 
       mid = (low + high) / 2;
       if (array[mid*2] == searchTerm) {
         return array[mid*2+1];
-
-// based on the current pointer [mid*2] we either have a
-      } else if (array[mid*2] < searchTerm){
-// if we have sandwhich facing right
+      } 
+      // based on the current pointer [mid*2] we either have a      
+      else if (array[mid*2] < searchTerm){
+          // if we have sandwhich facing right
           if(array[2*(mid+1)] > searchTerm ){
             x1 = array[2*mid];
             x3 = array[2*mid+2];
@@ -45,7 +43,7 @@ float InterpolateYGivenXBST(float * array, int numpairs, float searchTerm) {
           }
 
       } else {
-// or we might have a sandwhich faceing left
+          // or we might have a sandwhich faceing left
            if(array[2*(mid-1)] < searchTerm ){
              x1 = array[2*mid-2];
              x3 = array[2*mid];
@@ -56,12 +54,19 @@ float InterpolateYGivenXBST(float * array, int numpairs, float searchTerm) {
           else{
             high = mid - 1;
 
-            }
+          }
         }
-      }
-      //end while loop
-      return  array[mid*2+1];
+      
+      ///
+      ;;;;;;;;;;;;;;;;;;;;;;;;
+      ;;;;;;;;;;;;;;;;;;;;;;;;
+      ;;;;;;;;;;;;;;;;;;;;;;;;
     }
+    
+      //end while loop
+      return  0; //in the while loop, there should be no way the location is not found. because of the two boundrys up top.
+  
+  }
 
 }
 
