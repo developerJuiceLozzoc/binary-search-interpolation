@@ -2,7 +2,6 @@
 
 
 
-
 /*
 interpolate a 1 d array of pairs [x1,y1,x2,y2,...]
 given xTarget find the interpolated y value.
@@ -18,10 +17,10 @@ float InterpolateYGivenXBST(float * array, int numpairs, float searchTerm) {
   float x1, /*searchTerm,*/ x3, y1, y3;
 
   if(array[0] >= searchTerm){
-    return array[1];
+	  return array[1];
   }
   else if(array[(numpairs-1)*2] <= searchTerm){
-    return array[numpairs*2-1];
+	  return array[numpairs*2-1];
   }
   else{
     while (low <= high) {
@@ -65,7 +64,6 @@ float InterpolateYGivenXBST(float * array, int numpairs, float searchTerm) {
       ;;;;;;;;;;;;;;;;;;;;;;;;
     }
     
-      //end while loop
       return  0; //in the while loop, there should be no way the location is not found. because of the two boundrys up top.
   
   }
